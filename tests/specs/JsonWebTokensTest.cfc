@@ -52,7 +52,7 @@ component
 
 		// NOTE: Values pulled from http://jwt.io/
 		var payload = jwt.decode( 
-			"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.R4hFfsggj06JDaxUw36RUcMkTcuhvjFqNUs8CNtqhCYDXFLFl5bwaeiASMYs0A79acFVDYKQC8r5euKEpldyE3Nn_opsjnTaC91z3LCdbYBUMd5EkTQO1c-NOZID5xMA_ff5xR9hn3Pg3OZas_2LP24krM6ZDlUxSHkdWi36cYE",
+			"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.RmVuOo-h-m2xCHTa2Cj6lz3rc6INhJS4cnq5DAiGTZekfoiiSnoEaehzvYiiEFjr6coNx4YKzV6CkcFrnbgC1AuZGbEAsg6TgQqljRke_6rKWKyp46kE1zc8z0SLdGHu9ELZu_MKRH6QwlLPuoCWcPrKnN65bQIyJ89qCnUfVDaRldKKKv_Vf77_pXtxgqAL0bhZmPG8gfApi5ziZ4uK_PMZVScbPLKpfSuuQvReMWWPIyg-u79_n0HdLY5Bw1m3AflCOzP9Nb-yNdVU6BlHOV1ZJ_YKjnA9zT_mgkgorQmwdy36JUYkyUuL5_sfZu627MDslc6Bg96pFcmqJ-QN9w",
 			"RS256",
 			getPublicKey(),
 			getPrivateKey()
@@ -234,7 +234,7 @@ component
 		// matches a known encoded token.
 		// --
 		// Signature validated on http://jwt.io/
-		var newPayload = jwtClient.decode( "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6IktpbSBTbWl0aCIsImxpa2VzIjpbIk1vdmllcyIsIldhbGtzIiwiRm9vZCJdLCJzdHJlbmd0aHMiOnsia2luZG5lc3MiOjcsInF1aXJraW5lc3MiOjksImZ1biI6MTB9fQ.kFz_oLiiM5VRlqX-5XidsnDDB7R5IYyxTf87mMyYRpOop2mMrqVQFiKULaZDjQGYB_MKuJLQv2ocmUSbUWXqcpZC__amORjIW-8lTMwtNQM3vDQhQcvmCfU31hQeznxoI6_0u1WEqcuArANZXc7guM66rSS9j48AevhvPFgI79Q" );
+		var newPayload = jwtClient.decode( "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6IktpbSBTbWl0aCIsImxpa2VzIjpbIk1vdmllcyIsIldhbGtzIiwiRm9vZCJdLCJzdHJlbmd0aHMiOnsia2luZG5lc3MiOjcsInF1aXJraW5lc3MiOjksImZ1biI6MTB9fQ.hAfSM1DdfBIRhxydByGO-P6poyN6odQ8fg1STh25zPx-6QwydlQp9nbLLm294BB3c3uLewJrBpXCRuRSHTtzza4WP3wON2V4SUT3J6P1tvOR7AOk-bAhkmcEQUYnXmQIvzgrcGUdkE-QJX2qXN7_QrlYL2tcWRUWhZe_P13cX3WJIOQWlZGjfT8_Icrj70qmATlCCPFBQ_3RcnDGrna2EHoFiq_6SKnbYAQbhb2yv2VClteD1WznrK-iTgO8k-4OfE2oPrP4JhGoqUIjy7SYzYnaVg8uJCN8i8oQ72BfdR6bwvqE6O96g90P2jBbLPKgtCfFzGsdlZIKCTgT8dVvWg" );
 
 		var expectedPayload = {
 			"id": 4,
@@ -308,21 +308,34 @@ component
 	private string function getPrivateKey() {
 
 		var lines = [
-			"-----BEGIN RSA PRIVATE KEY-----",
-			"MIICXAIBAAKBgQCq8RpMWK5mEt9qypbw6+zafEgQIpR1uUjHbIbZ6dadW/uxU3DZ",
-			"D0KW+KVAXnJb11dYCv48O5O/8h95z/SdAnHchc6hjk7wkAPwG1p3rpMVoSCftkoh",
-			"y+qzdELmDir8Sr61gaEXUnZfp2gkfmubiAITHovHFfRk5hNGZTHxol7LJwIDAQAB",
-			"AoGAYiVkMAmKuFiFpk8DMviCWT+aMIlqK91iB/4rvtofuuGhNULvO/EjDoNcfgS8",
-			"LDcLkyVcq0CZqE9f+xSHIc7RiBegv4uxGJQ6/rivfbOh2KjfLAIkniovN3FOR86B",
-			"GJ6MWm3Bo28gGrPoODkRrnZvDHtfRvUXnzyGTxH5yOCJxAECQQDTP4j9yMTuOaag",
-			"AG51RQ7cP6aVazZY8e4+MO8+8R0XrU5C1kEzfhh+FGS6laxoaay0LIFnhYB2ozXD",
-			"YjiVX+qBAkEAzyepeZQaH9/f6/l3Hnme9Qxfhl+4bnHjR2TEnzb+QLkBnVwYb42P",
-			"cO8VnZ1VJadZCX4k2+rEZ1hBc5+yxppRpwJAS4G9NIELqt7eaPhegvohGqaBo4zD",
-			"yz0GXCJfkY7bSDhA7fDpMz+R/5bIfky7aELFYU07H8Z/KWii8ehssy+qgQJAVGVI",
-			"OmwIKKxAwhakXRoXlKYx1MDylqx3eAKpyGPTOfMloUKAAhKeOdht6gTLR8fiEmf+",
-			"BEqlMaVXJRAO+bKtSQJBAIof8obXnfxr4ruNzv7bFSvRSLMXxqOi+5TRbpjpwtRz",
-			"yCRXDbakPi05ywzWRDJ/AoON63ZWyFVTFDZQEp2hRwQ=",
-			"-----END RSA PRIVATE KEY-----"
+			"-----BEGIN PRIVATE KEY-----",
+			"MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDRv/mlsrxWufLJ",
+			"doRRhBU/YQjfFkOzsPYpZKgdlyTCGe5SyQXUo+MwuzYWjlyUg4GrkeJiCLJjqTQb",
+			"FxpPq/c/51TdGjb6JvDHNfX+ExqKvt1+BwiTYWFnv1F3r08UDpZhkTfhY3ZkyAMJ",
+			"0EbSvWFA8KamC3q0KfocFhReRSKFRQBG9KJo8+1nSjT9nNG4rq0L/ZY1fXbEOPeY",
+			"sAJhAuo4hQrBbYn0783c2x5nnV1B5eNnUBBPf82a9fhzU98U/oY2iJ2/UIutouZk",
+			"iK7D4pIjwjyYYspAHrRW5J0PT25ZeaCqZxK41+WdhZ9l+9bd2pZcKyV3noVOSy8f",
+			"Po9d/kBZAgMBAAECggEAUBAvgwhOy+v+uNf8egEo+yBW+pDNFvIdhH9fjKv84/px",
+			"9je1eg10000iwElnHWl1PcBZ4YHgVhpoQU74RCEoJ8RtqFgxVBs5HVGDrJAuOXfR",
+			"pCGbLGanf6qPtle8n7NRw7xi0C3fK2kNf9l4r0iKrvctJYSMOeksBzyGWdWZ77RN",
+			"XU0g76qa2eyzjcYeVAJWYfpQToJ/mmjd1Wi+/QKEjdbEzojBBTOyiDfgzkOSX5pA",
+			"v96Dg0Ow111te2Q/OEzZESziywUy9XBDuFbmWMnYt/OTJ+GCFcE4lW5QtMl3oPUI",
+			"p1osYy9EdsUDw3Dmz62Z3Dn3glhKjrrNptIclCzn4QKBgQD9sejHk/CDShRHmTIp",
+			"p5jZ1i/liQ8AFZQSazkFw/AOqbyt3x70brv+be37WVo0seUU1iV/a2x/uRoBdASl",
+			"lFmNq1vVExE2yb4ex0asRNtDAvRVp0aiPLQlhZ1NG+GdRce9tXbZdk0BxBJaacOi",
+			"IS4Z6LRbyOQFYl0yixyQLCyv4wKBgQDTp9mwIUcX32e6hvKYvFhw18/1hArEptyl",
+			"AtOItkYCRwhbMUCW2uMXb81coK2+WQXMFt0VqXdi5BZeY0CLKOwug771dJPW82pg",
+			"NZYu3yOer1+tMJdtxad8AHIQ9oSH3Mu9f5fZqmUnFTLQUbk00Bz03A045X/+/Xnv",
+			"dpS9jeeLkwKBgQCOBhhMCn0d8s3Rm2jiuumuIeNke8tC/9GKUi51FNECVHHFYOCC",
+			"dK+X61DMYqRGVcTqWkxZvfjas/RkFeA4FgngbqsVaPw9EMn3jxX4gP/CzxecD+5S",
+			"CuvLCbcbIN24XwVIJhun+Dt6HpsrtIQJ8stNQ+IcdCV7AissjYZrC9/kgwKBgQCA",
+			"QJWIRKHvtVAFlwApzPdKaXt6KijcQMAyvSOxE8IYXzKRD6czwi8ZZIXsOvENBqSc",
+			"pr4RAj91jQCA8WOK76EuDmcIFTwAZD9xTQdUH6JV5a70Ix2fRsXWPe7gmIB2UzSh",
+			"/07kdnwU0qOX1+2CMxlYxn68m1SUDsR0dkZrFjHYQQKBgCegmRpxpW0/vb3ApvXX",
+			"ynCNhnWbtBHnlaDkHT3kO4W4t7JVAvsRGxDYTTTus8rdTh7IkdnXJFfSowdtCEB/",
+			"XcIfqIh/5BmDYYPuFC6DPKsKWQdeT1UMobgDoC3gdWljoNRPaSs/akPa9wwGb1bU",
+			"CM6RyC2uULvKVimFJYy92Q6H",
+			"-----END PRIVATE KEY-----"
 		];
 
 		return( arrayToList( lines, chr( 10 ) ) );
@@ -335,10 +348,13 @@ component
 
 		var lines = [
 			"-----BEGIN PUBLIC KEY-----",
-			"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCq8RpMWK5mEt9qypbw6+zafEgQ",
-			"IpR1uUjHbIbZ6dadW/uxU3DZD0KW+KVAXnJb11dYCv48O5O/8h95z/SdAnHchc6h",
-			"jk7wkAPwG1p3rpMVoSCftkohy+qzdELmDir8Sr61gaEXUnZfp2gkfmubiAITHovH",
-			"FfRk5hNGZTHxol7LJwIDAQAB",
+			"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0b/5pbK8VrnyyXaEUYQV",
+			"P2EI3xZDs7D2KWSoHZckwhnuUskF1KPjMLs2Fo5clIOBq5HiYgiyY6k0GxcaT6v3",
+			"P+dU3Ro2+ibwxzX1/hMair7dfgcIk2FhZ79Rd69PFA6WYZE34WN2ZMgDCdBG0r1h",
+			"QPCmpgt6tCn6HBYUXkUihUUARvSiaPPtZ0o0/ZzRuK6tC/2WNX12xDj3mLACYQLq",
+			"OIUKwW2J9O/N3NseZ51dQeXjZ1AQT3/NmvX4c1PfFP6GNoidv1CLraLmZIiuw+KS",
+			"I8I8mGLKQB60VuSdD09uWXmgqmcSuNflnYWfZfvW3dqWXCsld56FTksvHz6PXf5A",
+			"WQIDAQAB",
 			"-----END PUBLIC KEY-----"
 
 		];
